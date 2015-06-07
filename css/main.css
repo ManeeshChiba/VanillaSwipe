@@ -1,0 +1,24 @@
+@charset "UTF-8";
+/*Functional CSS*/
+.vanilla-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.vanilla-container .vanilla-wrapper {
+  height: 100%;
+  overflow: hidden;
+  -webkit-transition: all ease 0.25s;
+          transition: all ease 0.25s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.vanilla-container .vanilla-wrapper .vanilla-slide {
+  display: inline-block;
+  float: left;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.vanilla-container .vanilla-controls a:visited {
+  color: inherit;
+}
