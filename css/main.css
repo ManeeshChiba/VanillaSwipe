@@ -1,4 +1,303 @@
 @charset "UTF-8";
+/*The Usual Suspects*/
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+html,
+button,
+input,
+select,
+textarea {
+  color: #222222;
+}
+html {
+  font-size: 1em;
+  line-height: 1.5;
+}
+html,
+body,
+p,
+a {
+  -moz-osx-font-smoothing: grayscale;
+}
+::-moz-selection {
+  background: #8383cf;
+  text-shadow: none;
+}
+::selection {
+  background: #8383cf;
+  text-shadow: none;
+}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #222222;
+  margin: 1em 0;
+  padding: 0;
+}
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+textarea {
+  resize: vertical;
+}
+input {
+  outline: none;
+}
+/*Nested Lists*/
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
+ol > li {
+  display: table;
+  counter-increment: item;
+  margin-bottom: 0.6em;
+}
+ol > li:before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.6em;
+}
+li ol > li {
+  margin: 0;
+}
+li ol > li:before {
+  content: counters(item, ".") " ";
+}
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/* DEFAULT FONT SETTINGS
+  Base 16px, 1.5 line-height = 24px per line */
+body,
+button,
+input,
+select,
+textarea {
+  font: 100%/1.5 Helvetica, Arial, sans-serif;
+  *font-size: 1em;
+  color: #222222;
+}
+p,
+blockquote,
+q,
+pre,
+address,
+hr,
+code,
+samp,
+dl,
+ol,
+ul,
+table,
+fieldset,
+menu,
+img {
+  margin: 0 0 1.5em;
+  padding: 0;
+}
+/* TYPOGRAPHY */
+/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
+p,
+a {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Helvetica, Arial, sans-serif;
+  color: #222222;
+  margin: 0;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+h2 {
+  font-size: 3em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+}
+/* 48px / 48px */
+h3 {
+  font-size: 2em;
+  line-height: 1.3333333333333333333333333333333em;
+  margin-bottom: 0.6667em;
+}
+/* 36px / 48px */
+h4 {
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+/* 24px / 24px */
+h5 {
+  font-size: 1.3125em;
+  line-height: 1.1428571428571428571428571428571em;
+  margin-bottom: 1.1428571428571428571428571428571em;
+}
+/* 21px / 24px */
+h6 {
+  font-size: 1.125em;
+  line-height: 1.3333333333333333333333333333333em;
+  margin-bottom: 1.3333333333333333333333333333333em;
+}
+/* 18px / 24px */
+p,
+ul,
+blockquote,
+pre,
+td,
+th,
+label {
+  margin: 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+}
+/* 16px / 24px */
+small,
+p.small {
+  margin: 0;
+  font-size: 0.875em;
+  line-height: 1.7142857142857142857142857142857em;
+  margin-bottom: 1.7142857142857142857142857142857em;
+}
+/* 14px */
+p a {
+  border-bottom: 1px solid #8383cf;
+  position: relative;
+  z-index: 5;
+}
+p a:before {
+  content: '';
+  width: 110%;
+  height: 0%;
+  background: #8383cf;
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  -webkit-transition: all ease 0.15s;
+          transition: all ease 0.15s;
+  z-index: -1;
+}
+p a:hover {
+  color: #dddddd;
+}
+p a:hover:before {
+  height: 120%;
+}
+/* TABLES */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 1.5em;
+}
+th {
+  text-align: left;
+}
+tr,
+th,
+td {
+  padding-right: 1.5em;
+  border-bottom: 0 solid #222222;
+}
+/* LISTS */
+ul,
+ol {
+  list-style-position: inside;
+  padding: 0;
+}
+li ul,
+li ol {
+  margin: 0 1.5em;
+}
+/* HYPERLINKS */
+a {
+  text-decoration: none;
+  color: #8383cf;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus {
+  outline: 0;
+}
+a:hover,
+a:active {
+  outline: none;
+}
+/* MEDIA */
+figure {
+  margin: 0;
+}
+img,
+object,
+embed,
+video {
+  max-width: 100%;
+  _width: 100%;
+}
+/* Fluid images */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+/* Improve IE's resizing of images */
+svg:not(:root) {
+  overflow: hidden;
+}
+/* Correct IE9 overflow */
+/* OTHERS */
+strong,
+b,
+dt {
+  font-weight: bold;
+}
+dfn {
+  font-style: italic;
+}
+var,
+address {
+  font-style: normal;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+/* Position 'sub' and 'sup' without affecting line-height */
+sup {
+  top: -0.5em;
+}
+/* Move superscripted text up */
+sub {
+  bottom: -0.25em;
+}
+/* Move subscripted text down */
 /*Functional CSS*/
 .vanilla-container {
   width: 100%;
@@ -21,4 +320,56 @@
 }
 .vanilla-container .vanilla-controls a:visited {
   color: inherit;
+}
+/*Branding Styles*/
+.vanilla-container {
+  height: 100%;
+  background: transparent;
+  position: relative;
+}
+.vanilla-container .vanilla-wrapper {
+  height: 100%;
+}
+.vanilla-container .vanilla-wrapper .vanilla-slide {
+  height: 100%;
+}
+.vanilla-container .vanilla-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  margin-top: -1em;
+}
+.vanilla-container .vanilla-controls .left,
+.vanilla-container .vanilla-controls .right {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background: transparent;
+  border: 3px solid #8383cf;
+  text-indent: -1000%;
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.vanilla-container .vanilla-controls .left {
+  border-top: 0;
+  border-right: 0;
+  float: left;
+  margin-left: 3em;
+}
+.vanilla-container .vanilla-controls .right {
+  border-bottom: 0;
+  border-left: 0;
+  float: right;
+  margin-right: 3em;
+}
+#slide-01 {
+  background: #5e5ec1;
+}
+#slide-02 {
+  background: #4242aa;
+}
+#slide-03 {
+  background: #343485;
 }

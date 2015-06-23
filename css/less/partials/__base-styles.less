@@ -1,0 +1,20 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html,body {height: 100%; overflow-x: hidden; background: @body-bg;}
+html, button, input, select, textarea { color: @text-colour-dark;}
+html { font-size: 1em; line-height: 1.5; }
+html,body,p,a{-moz-osx-font-smoothing: grayscale;} // For Firefox Font Rendering
+::-moz-selection {background:@brand-highlight; text-shadow: none;}
+::selection {background:@brand-highlight; text-shadow: none;}
+hr { display: block; height: 1px; border: 0; border-top: 1px solid @text-colour-dark; margin: 1em 0; padding: 0;}
+audio,canvas,img,video { vertical-align: middle;}
+fieldset { border: 0; margin: 0; padding: 0;}
+textarea { resize: vertical; }
+input {outline: none;}
+/*Nested Lists*/
+ol { list-style-type: none; counter-reset: item; margin: 0; padding: 0;}
+ol > li { display: table; counter-increment: item; margin-bottom: 0.6em; }
+ol > li:before { content: counters(item, ".") ". "; display: table-cell; padding-right: 0.6em;}
+li ol > li { margin: 0;}
+li ol > li:before { content: counters(item, ".") " ";}

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+@font-stack: Helvetica, Arial, sans-serif;
+
+/* DEFAULT FONT SETTINGS
+  Base 16px, 1.5 line-height = 24px per line */
+body, button, input, select, textarea { font: 100%/1.5 @font-stack; *font-size: 1em; color: @text-colour-dark;}
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, table, fieldset, menu, img {margin: 0 0 1.5em; padding: 0; }
+
+/* TYPOGRAPHY */
+  /* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
+p, a {font-family:@font-stack; font-weight: 300; text-rendering: optimizeLegibility; }
+h1, h2, h3, h4, h5, h6 {font-family:@font-stack; color: @text-colour-dark; margin: 0; font-weight: 300; text-rendering: optimizeLegibility; }
+// h1 { font-size: 3.75em; line-height: 1.2em; margin-bottom: 0.4em;} /* 60px / 72px */
+h2 { font-size: 3em; line-height: 1em; margin-bottom: 0.5em;} /* 48px / 48px */
+h3 { font-size: 2em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 0.6667em;} /* 36px / 48px */ 
+h4 { font-size: 1.5em; line-height: 1em; margin-bottom: 1em;} /* 24px / 24px */
+h5 { font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; margin-bottom: 1.1428571428571428571428571428571em;} /* 21px / 24px */
+h6 { font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em;} /* 18px / 24px */
+p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em;} /* 16px / 24px */
+small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em;} /* 14px */
+p a { border-bottom:1px solid @brand-highlight; position: relative; z-index: 5;
+  &:before { content: ''; width: 110%; height: 0%; background: @brand-highlight; position: absolute; bottom:-10%; left: -5%; transition:all ease 0.15s; z-index: -1;}
+  &:hover { color: @text-colour-light;
+    &:before {height: 120%;}
+  }
+}
+
+/* TABLES */
+table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em;}
+th {text-align: left;}
+tr, th, td {padding-right: 1.5em; border-bottom: 0 solid @text-colour-dark;}
+
+/* LISTS */
+ul, ol {list-style-position: inside; padding: 0;}
+li ul, li ol {margin: 0 1.5em;}
+
+/* HYPERLINKS */
+a {text-decoration: none; color:@brand-highlight;}
+a:hover {text-decoration: none;}
+a:focus {outline: 0;}
+a:hover, a:active {outline: none;}
+
+/* MEDIA */
+figure {margin: 0}
+img, object, embed, video {max-width: 100%; _width: 100%} /* Fluid images */
+img {border: 0; -ms-interpolation-mode: bicubic} /* Improve IE's resizing of images */
+svg:not(:root) {overflow: hidden} /* Correct IE9 overflow */
+
+/* OTHERS */
+strong, b, dt { font-weight: bold}
+dfn {font-style: italic}
+var, address {font-style: normal}
+sub, sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline} /* Position 'sub' and 'sup' without affecting line-height */
+sup {top: -0.5em} /* Move superscripted text up */
+sub {bottom: -0.25em} /* Move subscripted text down */
