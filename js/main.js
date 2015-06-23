@@ -43,24 +43,24 @@ window.onload = function () {
 
 
 	function calculateWrapperWidth(){
-		console.log (document.getElementsByClassName('vanilla-container')[0].clientWidth );
 		visibleWidth = vContainer.clientWidth;
-		console.log(visibleWidth);
 		totalWidth = visibleWidth * (vSlides.length);
 	}
 
-	function generateCSS(){	
-		css = '';
-		css += '.vanilla-wrapper { width:'+totalWidth+'px;}';
-		css += '.vanilla-container, .vanilla-slide {width:'+visibleWidth+'px;}';
+	function generateCSS(){			
+		vWrapper.style.cssText = 'width:'+totalWidth+'px;';
+		for (var slideLoop = 0;slideLoop < vSlides.length; slideLoop++){
+			vSlides[slideLoop].style.cssText = 'width:'+visibleWidth+'px;';	
+		}
+		
 	}
 
-	function writeCSS(){
-		style.type = 'text/css';
-		style.appendChild(document.createTextNode(css));
-		head.appendChild(style);
-		styleAdded = true;
-	}
+	// function writeCSS(){
+	// 	style.type = 'text/css';
+	// 	style.appendChild(document.createTextNode(css));
+	// 	head.appendChild(style);
+	// 	styleAdded = true;
+	// }
 
 	function slideRight(){
 		if ( (activeIndex * visibleWidth) < totalWidth){
@@ -100,14 +100,14 @@ window.onload = function () {
 	window.addEventListener('resize',function(){
 		calculateWrapperWidth();
 		generateCSS();
-		writeCSS();
+		// writeCSS();
 	});
 
 
 	testBrowser();
 	calculateWrapperWidth();
 	generateCSS();
-	writeCSS();
+	// writeCSS();
 
 	
 
