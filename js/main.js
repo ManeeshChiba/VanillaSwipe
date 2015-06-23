@@ -11,7 +11,7 @@ window.onload = function () {
 	var activeIndex = 1;
 	var currentSlideValue = 0;
 
-	function testBrowser(){
+	function testBrowser(){ //To see if we can do that sweet 60fps or if its IE
 		var cssSupportCheck = (function(){
 			var testElement = document.createElement('div');
 			var vendorPrefixs = ['Khtml, Ms, O, Webkit'];
@@ -63,7 +63,7 @@ window.onload = function () {
 		return false;
 	}
 
-	function setActive(){
+	function setActiveSlide(){
 		if (checkIfActive() == false){
 			for (var slideCount = 0;slideCount < vSlides.length; slideCount++){
 				vSlides[slideCount].className = vSlides[slideCount].className.replace(/\b active\b/,'');
@@ -84,6 +84,8 @@ window.onload = function () {
 		}
 		if ( document.getElementsByClassName('transform').length > 0){ // checks if browser can transform
 			vWrapper.style.cssText += '-moz-transform: translateX('+amountToSlide+'px) translateY(0px); -webkit-transform: translateX('+amountToSlide+'px) translateY(0px); -o-transform: translateX('+amountToSlide+'px) translateY(0px); -ms-transform: translateX('+amountToSlide+'px) translateY(0px); transform: translateX('+amountToSlide+'px) translateY(0px);';
+		} else {
+			vWrapper.style.cssText += 'margin-left:'+amountToSlide+'px;';
 		}
 	}
 
@@ -95,6 +97,8 @@ window.onload = function () {
 			handleClassDelegation();
 			if ( document.getElementsByClassName('transform').length > 0){ // checks if browser can transform
 				vWrapper.style.cssText += '-moz-transform: translateX('+amountToSlide+'px) translateY(0px); -webkit-transform: translateX('+amountToSlide+'px) translateY(0px); -o-transform: translateX('+amountToSlide+'px) translateY(0px); -ms-transform: translateX('+amountToSlide+'px) translateY(0px); transform: translateX('+amountToSlide+'px) translateY(0px);';
+			} else {
+				vWrapper.style.cssText += 'margin-left:'+amountToSlide+'px;';
 			}
 		}				
 	}
@@ -114,9 +118,7 @@ window.onload = function () {
 		writeScaffoldingCSS()
 	});
 
-
-	
-	setActive();
+	setActiveSlide();
 	testBrowser();
 	calculateWrapperWidth();
 	writeScaffoldingCSS();
