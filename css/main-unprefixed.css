@@ -306,7 +306,7 @@ sub {
 .vanilla-container .vanilla-wrapper {
   height: 100%;
   overflow: hidden;
-  transition: all ease 0.25s;
+  transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.25s;
   backface-visibility: hidden;
 }
 .vanilla-container .vanilla-wrapper .vanilla-slide {
@@ -387,10 +387,19 @@ sub {
 }
 #slide-01 {
   background: #5e5ec1;
+  background-image: url('../img/background-01.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #slide-02 {
   background: #4242aa;
+  background-image: url('../img/background-02.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #slide-03 {
   background: #343485;
+  background-image: url('../img/background-03.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
