@@ -4,7 +4,6 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  background: blue;
 }
 .vanilla-container .vanilla-wrapper {
   height: 100%;
@@ -19,7 +18,6 @@
   float: left;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background: green;
 }
 .vanilla-container .vanilla-controls a:visited {
   color: inherit;
