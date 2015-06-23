@@ -25,11 +25,18 @@
 	.vanilla-wrapper {height: 100%;
 		.vanilla-slide {height: 100%;}
 	}
-	.vanilla-controls {position: absolute; top: 50%; left: 0; width: 100%; margin-top: -1em;
-		.left, .right {display: block; width: 1em; height: 1em; background: transparent; border:3px solid @brand-highlight; text-indent: -1000%; transform:rotate(45deg);}
+	.vanilla-controls {position: absolute; top: 50%; left: 0; width: 100%; margin-top: -2em;
+		.left, .right {text-indent: -1000%; position: relative; width: 4em; height: 4em; display: block; background: @body-bg; border-radius: 8em; z-index: 1; opacity: 0.5; transition:all 0.25s ease;
+			&:before {content: ''; display: block; width: 1em; height: 1em; background: transparent; border:3px solid @brand-highlight;  transform:rotate(45deg); position: absolute; top: 1.4em; left: 1.4em; z-index: 2;}
+			&:hover {opacity: 1;}
+		}
 
-		.left {border-top:0; border-right: 0; float: left; margin-left: 3em;}
-		.right {border-bottom:0; border-left: 0; float: right; margin-right: 3em;}
+		.left {  float: left; margin-left: 3em;
+			&:before{border-top:0; border-right: 0; left: 1.6em;}
+		}
+		.right { float: right; margin-right: 3em;
+			&:before{border-bottom:0; border-left: 0; left: 1.2em;}
+		}
 	}
 }
 

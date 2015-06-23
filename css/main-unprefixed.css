@@ -334,29 +334,56 @@ sub {
   top: 50%;
   left: 0;
   width: 100%;
-  margin-top: -1em;
+  margin-top: -2em;
 }
 .vanilla-container .vanilla-controls .left,
 .vanilla-container .vanilla-controls .right {
+  text-indent: -1000%;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  display: block;
+  background: #ffffff;
+  border-radius: 8em;
+  z-index: 1;
+  opacity: 0.5;
+  transition: all 0.25s ease;
+}
+.vanilla-container .vanilla-controls .left:before,
+.vanilla-container .vanilla-controls .right:before {
+  content: '';
   display: block;
   width: 1em;
   height: 1em;
   background: transparent;
   border: 3px solid #8383cf;
-  text-indent: -1000%;
   transform: rotate(45deg);
+  position: absolute;
+  top: 1.4em;
+  left: 1.4em;
+  z-index: 2;
+}
+.vanilla-container .vanilla-controls .left:hover,
+.vanilla-container .vanilla-controls .right:hover {
+  opacity: 1;
 }
 .vanilla-container .vanilla-controls .left {
-  border-top: 0;
-  border-right: 0;
   float: left;
   margin-left: 3em;
 }
+.vanilla-container .vanilla-controls .left:before {
+  border-top: 0;
+  border-right: 0;
+  left: 1.6em;
+}
 .vanilla-container .vanilla-controls .right {
-  border-bottom: 0;
-  border-left: 0;
   float: right;
   margin-right: 3em;
+}
+.vanilla-container .vanilla-controls .right:before {
+  border-bottom: 0;
+  border-left: 0;
+  left: 1.2em;
 }
 #slide-01 {
   background: #5e5ec1;
