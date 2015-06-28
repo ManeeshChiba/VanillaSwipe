@@ -5,12 +5,26 @@
 @import 'partials/__base-styles.less';
 @import 'partials/__typography.less';
 
+/*Animations*/
+@keyframes fade-in{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+@keyframes fade-in-bg{
+	0% {background: rgba(0,0,0,0);}
+	100% {background: rgba(0,0,0,0.2);}
+}
+
+@keyframes reveal-box{
+	0% {width: 0%;}
+	100% {width: 50%;}
+}
 
 
 /*Functional CSS*/
 // Teh codez that makes it work
 .vanilla-container { width: 100%; overflow: hidden; white-space: nowrap;
-	.vanilla-wrapper { height: 100%; overflow: hidden; transition: all cubic-bezier(0.65, 0.05, 0.36, 1) 0.25s; backface-visibility: hidden;
+	.vanilla-wrapper { height: 100%; overflow: hidden; transition: all ease 0.25s; backface-visibility: hidden;
 		.vanilla-slide {display: inline-block; float: left; backface-visibility: hidden;}
 	}
 	
@@ -31,6 +45,8 @@
 			&:hover {opacity: 1;}
 		}
 
+		.disabled {pointer-events: none; opacity: 0;}
+
 		.left {  float: left; margin-left: 3em;
 			&:before{border-top:0; border-right: 0; left: 1.6em;}
 		}
@@ -43,3 +59,26 @@
 #slide-01 {background: darken(@brand-highlight, 10%); background-image:url('@{images}/background-01.jpg'); background-size: cover; background-repeat: no-repeat;}
 #slide-02 {background: darken(@brand-highlight, 20%); background-image:url('@{images}/background-02.jpg'); background-size: cover; background-repeat: no-repeat;}
 #slide-03 {background: darken(@brand-highlight, 30%); background-image:url('@{images}/background-03.jpg'); background-size: cover; background-repeat: no-repeat;}
+
+.h-center {width: 100%; height: 100%; display: table; text-align: center;
+	.v-center {display: table-cell; text-align: center; vertical-align: middle;}
+}
+
+#slide-01{
+	.block {width: 50%; margin: 0 auto; overflow: visible;}
+	p {color:#fff; font-size: 10em; font-weight: bold; text-transform: uppercase; display: inline-block; margin: 0; padding: 3rem 3rem 0; position: relative;
+		#empty, #your-mind {display: block; float: left;}
+		#empty {font-size: 15.7rem; opacity: 0;}
+		#your-mind {margin-top: -4.6rem; margin-left: 1.3rem; font-size: 9.2rem; opacity: 0;}
+		&:before {content: ''; display: block; position: absolute; top: 0; left: 0; width: 0%; height: 99%; border:5px solid white; border-right: 0;}
+		&:after {content: ''; display: block; position: absolute; top: 0; right: 0; width: 0%; height: 99%; border:5px solid white; border-left: 0;}
+	}
+}
+#slide-01.active {
+	p {
+		#empty {animation-delay:0.5s; animation-duration:250ms; animation-timing-function:ease; animation-name:fade-in; animation-fill-mode:forwards;}
+		#your-mind {animation-delay:0.75s; animation-duration:500ms; animation-timing-function:ease; animation-name:fade-in; animation-fill-mode:forwards;}
+		&:before, &:after {animation-delay:1s; animation-duration:750ms; animation-timing-function:ease; animation-name:reveal-box; animation-fill-mode:forwards;}
+	}
+	.block {animation-delay:1.15s; animation-duration:500ms; animation-timing-function:ease; animation-name:fade-in-bg; animation-fill-mode:forwards;}
+}
