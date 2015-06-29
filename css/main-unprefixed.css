@@ -331,7 +331,7 @@ sub {
 .vanilla-container .vanilla-wrapper {
   height: 100%;
   overflow: hidden;
-  transition: all ease 0.25s;
+  transition: transform linear 0.25s;
   backface-visibility: hidden;
 }
 .vanilla-container .vanilla-wrapper .vanilla-slide {

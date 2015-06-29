@@ -356,8 +356,8 @@ sub {
 .vanilla-container .vanilla-wrapper {
   height: 100%;
   overflow: hidden;
-  -webkit-transition: all ease 0.25s;
-          transition: all ease 0.25s;
+  -webkit-transition: -webkit-transform linear 0.25s;
+          transition: transform linear 0.25s;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
