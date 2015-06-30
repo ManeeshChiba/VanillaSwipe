@@ -20,12 +20,7 @@ h5 { font-size: 1.3125em; line-height: 1.1428571428571428571428571428571em; marg
 h6 { font-size: 1.125em; line-height: 1.3333333333333333333333333333333em; margin-bottom: 1.3333333333333333333333333333333em;} /* 18px / 24px */
 p, ul, blockquote, pre, td, th, label {margin: 0; font-size: 1em; line-height: 1.5em; margin-bottom: 1.5em;} /* 16px / 24px */
 small, p.small {margin: 0; font-size: 0.875em; line-height: 1.7142857142857142857142857142857em; margin-bottom: 1.7142857142857142857142857142857em;} /* 14px */
-p a { border-bottom:1px solid @brand-highlight; position: relative; z-index: 5;
-  &:before { content: ''; width: 110%; height: 0%; background: @brand-highlight; position: absolute; bottom:-10%; left: -5%; transition:all ease 0.15s; z-index: -1;}
-  &:hover { color: @text-colour-light;
-    &:before {height: 120%;}
-  }
-}
+
 
 /* TABLES */
 table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em;}
