@@ -83,6 +83,57 @@ window.onload = function () {
 		}
 	}
 
+	function buildPagination(){
+		var vPagination = document.getElementsByClassName('vanilla-pagination')[0];
+		for (var pageCount = 0; pageCount < vSlides.length; pageCount++){
+			vPagination.innerHTML += '<span class="page" id="page-'+(pageCount+1)+'"></span>';
+		}
+		enablePagination();
+	}
+
+	function enablePagination(){
+		var paginationControl = document.getElementsByClassName('page');
+		for (var i = 0; i < paginationControl.length; i++){
+			paginationControl[i].addEventListener('click',function(){
+				var slideToVal = event.target.id.replace('page-','');
+				if (slideToVal > activeIndex){
+					if ( (activeIndex * visibleWidth) < totalWidth){
+						var amountToSlide = (slideToVal * visibleWidth)*-1;
+						currentSlideValue = amountToSlide;
+						activeIndex ++;
+						disableControls();
+						setTimeout(function(){
+							handleClassDelegation();
+						},300)
+					} else {
+						var amountToSlide =  (((activeIndex-1) * visibleWidth))*-1;
+						currentSlideValue = amountToSlide;
+					}
+					if ( document.getElementsByClassName('transform').length > 0){ // checks if browser can transform
+						vWrapper.style.cssText += '-moz-transform: translateX('+amountToSlide+'px); -webkit-transform: translateX('+amountToSlide+'px); -o-transform: translateX('+amountToSlide+'px); -ms-transform: translateX('+amountToSlide+'px); transform: translateX('+amountToSlide+'px);';
+					} else {
+						vWrapper.style.cssText += 'margin-left:'+amountToSlide+'px;';
+					}
+				} else {
+					var amountToSlide = slideToVal + visibleWidth;
+					if (currentSlideValue < 0) {
+						currentSlideValue = amountToSlide;
+						activeIndex--;
+						disableControls();
+						setTimeout(function(){
+							handleClassDelegation();
+						},300)
+						if ( document.getElementsByClassName('transform').length > 0){ // checks if browser can transform
+							vWrapper.style.cssText += '-moz-transform: translateX('+amountToSlide+'px); -webkit-transform: translateX('+amountToSlide+'px); -o-transform: translateX('+amountToSlide+'px); -ms-transform: translateX('+amountToSlide+'px); transform: translateX('+amountToSlide+'px);';
+						} else {
+							vWrapper.style.cssText += 'margin-left:'+amountToSlide+'px;';
+						}
+					}
+				}
+			});
+		}
+	}
+
 	function slideRight(){
 		if ( (activeIndex * visibleWidth) < totalWidth){
 			var amountToSlide = (activeIndex * visibleWidth)*-1;
@@ -100,13 +151,6 @@ window.onload = function () {
 			vWrapper.style.cssText += '-moz-transform: translateX('+amountToSlide+'px); -webkit-transform: translateX('+amountToSlide+'px); -o-transform: translateX('+amountToSlide+'px); -ms-transform: translateX('+amountToSlide+'px); transform: translateX('+amountToSlide+'px);';
 		} else {
 			vWrapper.style.cssText += 'margin-left:'+amountToSlide+'px;';
-		}
-
-		if ( vSlides[activeIndex-1].getElementsByTagName('iframe').length > 0){
-			console.log('true');
-			var currentSlide = vSlides[activeIndex-1].getElementsByTagName('img');
-			var refUrl = currentSlide[0].getAttribute('data-src');
-			currentSlide[0].setAttribute('src',refUrl);
 		}
 	}
 
@@ -146,84 +190,8 @@ window.onload = function () {
 	testBrowser();
 	calculateWrapperWidth();
 	writeScaffoldingCSS();
+	buildPagination();
 	disableControls();
-
-
-
-	//The following code ustilizes the YouTube API because I have not place to locally host and I wanted to play with the API for fun :)
-
-	var videos = vContainer.getElementsByClassName('video-player');
-	var videoIDs = [];
-	var players;
-	for (var videoPlayerCount = 0; videoPlayerCount < videos.length; videoPlayerCount++){
-		videos[videoPlayerCount].setAttribute('id','video'+videoPlayerCount);
-		videoIDs[videoPlayerCount] = videos[videoPlayerCount].getAttribute('data-yt-id');
-	}
-	// console.log(videoIDs);
-
-	// function onYouTubeIframeAPIReady(){
-	// 	for(var index = 0; index < videoIDs.length; index++){
-	// 		players[index] = new YT.Player('video'+index,{
-	// 			playerVars: { 'autoplay': 1, 'controls': 0 },
-	// 			height: '100%',
-	// 			width: '100%',
-	// 			videoId: videoIDs[index],
-	// 			events: {
-	// 				'onReady': onPlayerReady,
-	// 				'onStateChange': onPlayerStateChange
-	// 			}
-	// 		});
-	// 		console.log('video'+index);
-	// 	}
-	// }
-
-      // 2. This code loads the IFrame Player API code asynchronously.
-      // var tag = document.createElement('script');
-
-      // tag.src = "https://www.youtube.com/iframe_api";
-      // var firstScriptTag = document.getElementsByTagName('script')[0];
-      // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-
-
-      // var player;
-      // function onYouTubeIframeAPIReady() {
-      //   player = new YT.Player('player', {
-      //   playerVars: { 'autoplay': 1, 'controls': 0 },
-      //     height: '100%',
-      //     width: '100%',
-      //     videoId: '1FgLlwfY51Q',
-      //     events: {
-      //       'onReady': onPlayerReady,
-      //       'onStateChange': onPlayerStateChange
-      //     }
-      //   });
-      // }
-
-      // 4. The API will call this function when the video player is ready.
-
-
-      // function onPlayerReady(event) {
-      //   event.target.playVideo();
-      // }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-
-
-      // var done = false;
-      // function onPlayerStateChange(event) {
-      //   if (event.data == YT.PlayerState.PLAYING && !done) {
-      //     setTimeout(stopVideo, 6000);
-      //     done = true;
-      //   }
-      // }
-      // function stopVideo() {
-      //   player.stopVideo();
-      // }
 
 }
 

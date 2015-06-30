@@ -393,6 +393,29 @@ sub {
   border-left: 0;
   left: 1.2em;
 }
+.vanilla-container .vanilla-pagination {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 3em;
+  left: 0;
+  text-align: center;
+}
+.vanilla-container .vanilla-pagination span {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.vanilla-container .vanilla-pagination span:hover {
+  background: #ffffff;
+}
+.vanilla-container .vanilla-pagination span:not(:last-of-type) {
+  margin-right: 0.5em;
+}
 #slide-01 {
   background-image: url('../img/background-01.jpg');
   background-size: cover;
