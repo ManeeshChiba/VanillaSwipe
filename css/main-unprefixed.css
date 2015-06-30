@@ -338,6 +338,7 @@ sub {
   display: inline-block;
   float: left;
   backface-visibility: hidden;
+  overflow: hidden;
 }
 .vanilla-container .vanilla-controls a:visited {
   color: inherit;
@@ -444,83 +445,120 @@ sub {
   vertical-align: middle;
 }
 #slide-01 .block {
-  width: 50%;
-  margin: 0 auto;
-  overflow: visible;
-}
-#slide-01 p {
-  color: #fff;
-  font-size: 10em;
-  font-weight: bold;
-  text-transform: uppercase;
   display: inline-block;
-  margin: 0;
-  padding: 3rem 3rem 0;
+  margin: 0 auto;
+  padding: 3em;
   position: relative;
+  background: rgba(0, 0, 0, 0);
+  transition: all ease 0.75s;
 }
-#slide-01 p #empty,
-#slide-01 p #your-mind {
-  display: block;
-  float: left;
-}
-#slide-01 p #empty {
-  font-size: 15.7rem;
-  opacity: 0;
-}
-#slide-01 p #your-mind {
-  margin-top: -4.6rem;
-  margin-left: 1.3rem;
-  font-size: 9.2rem;
-  opacity: 0;
-}
-#slide-01 p:before {
-  content: '';
+#slide-01 .block span[id^="border-"] {
+  background: #fff;
   display: block;
   position: absolute;
-  top: 0;
-  left: 0;
+  transition: all ease 0.75s;
+}
+#slide-01 .block span[id^="border-top"],
+#slide-01 .block span[id^="border-bottom"] {
   width: 0%;
-  height: 99%;
-  border: 5px solid white;
-  border-right: 0;
+  height: 4px;
 }
-#slide-01 p:after {
-  content: '';
-  display: block;
-  position: absolute;
+#slide-01 .block span[id^="border-left"],
+#slide-01 .block span[id^="border-right"] {
+  width: 4px;
+  height: 0%;
+}
+#slide-01 .block #border-top-right {
+  top: 0;
+  right: 50%;
+}
+#slide-01 .block #border-bottom-right {
+  bottom: 0;
+  right: 50%;
+}
+#slide-01 .block #border-right-top {
   top: 0;
   right: 0;
-  width: 0%;
-  height: 99%;
-  border: 5px solid white;
-  border-left: 0;
 }
-#slide-01.active p #empty {
-  animation-delay: 0.5s;
-  animation-duration: 250ms;
-  animation-timing-function: ease;
-  animation-name: fade-in;
-  animation-fill-mode: forwards;
+#slide-01 .block #border-right-bottom {
+  bottom: 0;
+  right: 0;
 }
-#slide-01.active p #your-mind {
-  animation-delay: 0.75s;
-  animation-duration: 500ms;
-  animation-timing-function: ease;
-  animation-name: fade-in;
-  animation-fill-mode: forwards;
+#slide-01 .block #border-top-left {
+  top: 0;
+  left: 50%;
 }
-#slide-01.active p:before,
-#slide-01.active p:after {
-  animation-delay: 1s;
-  animation-duration: 750ms;
-  animation-timing-function: ease;
-  animation-name: reveal-box;
-  animation-fill-mode: forwards;
+#slide-01 .block #border-bottom-left {
+  bottom: 0;
+  left: 50%;
+}
+#slide-01 .block #border-left-top {
+  top: 0;
+  left: 0;
+}
+#slide-01 .block #border-left-bottom {
+  bottom: 0;
+  left: 0;
+}
+#slide-01 #empty,
+#slide-01 #your-mind {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 1;
+}
+#slide-01 #empty {
+  font-size: 700%;
+}
+#slide-01 #your-mind {
+  font-size: 400%;
+}
+@media (max-width: 640px) {
+  #slide-01 #empty {
+    font-size: 350%;
+  }
+  #slide-01 #your-mind {
+    font-size: 200%;
+  }
 }
 #slide-01.active .block {
-  animation-delay: 1.15s;
-  animation-duration: 500ms;
-  animation-timing-function: ease;
-  animation-name: fade-in-bg;
-  animation-fill-mode: forwards;
+  background: rgba(0, 0, 0, 0.2);
+  transition-delay: 1.5s;
+}
+#slide-01.active .block span[id^="border-top"],
+#slide-01.active .block span[id^="border-bottom"] {
+  width: 50%;
+  height: 4px;
+}
+#slide-01.active .block span[id^="border-left"],
+#slide-01.active .block span[id^="border-right"] {
+  width: 4px;
+  height: 50%;
+  transition-delay: 0.75s;
+}
+#slide-02 {
+  position: relative;
+}
+#slide-02 #video {
+  max-width: inherit;
+  height: 100%;
+  width: auto;
+}
+#slide-02 img {
+  display: block;
+  position: absolute;
+  bottom: 6em;
+  left: 5em;
+}
+@media (max-width: 640px) {
+  #slide-02 #video {
+    margin-left: -150%;
+  }
+  #slide-02 img {
+    max-width: 320px;
+    left: 50%;
+    margin-left: -160px;
+  }
 }

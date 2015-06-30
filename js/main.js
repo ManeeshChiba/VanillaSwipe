@@ -101,6 +101,13 @@ window.onload = function () {
 		} else {
 			vWrapper.style.cssText += 'margin-left:'+amountToSlide+'px;';
 		}
+
+		if ( vSlides[activeIndex-1].getElementsByTagName('iframe').length > 0){
+			console.log('true');
+			var currentSlide = vSlides[activeIndex-1].getElementsByTagName('img');
+			var refUrl = currentSlide[0].getAttribute('data-src');
+			currentSlide[0].setAttribute('src',refUrl);
+		}
 	}
 
 	function slideLeft(){

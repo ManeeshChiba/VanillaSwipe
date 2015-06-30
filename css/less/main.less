@@ -25,7 +25,7 @@
 // Teh codez that makes it work
 .vanilla-container { width: 100%; overflow: hidden; white-space: nowrap;
 	.vanilla-wrapper { height: 100%; overflow: hidden; transition: transform linear 0.25s; backface-visibility: hidden;
-		.vanilla-slide {display: inline-block; float: left; backface-visibility: hidden;}
+		.vanilla-slide {display: inline-block; float: left; backface-visibility: hidden; overflow: hidden;}
 	}
 	
 	.vanilla-controls {
@@ -65,20 +65,42 @@
 }
 
 #slide-01{
-	.block {width: 50%; margin: 0 auto; overflow: visible;}
-	p {color:#fff; font-size: 10em; font-weight: bold; text-transform: uppercase; display: inline-block; margin: 0; padding: 3rem 3rem 0; position: relative;
-		#empty, #your-mind {display: block; float: left;}
-		#empty {font-size: 15.7rem; opacity: 0;}
-		#your-mind {margin-top: -4.6rem; margin-left: 1.3rem; font-size: 9.2rem; opacity: 0;}
-		&:before {content: ''; display: block; position: absolute; top: 0; left: 0; width: 0%; height: 99%; border:5px solid white; border-right: 0;}
-		&:after {content: ''; display: block; position: absolute; top: 0; right: 0; width: 0%; height: 99%; border:5px solid white; border-left: 0;}
+	.block {display: inline-block;  margin: 0 auto; padding: 3em; position: relative; background: rgba(0,0,0,0); transition:all ease 0.75s;
+		span[id^="border-"] {background: #fff; display: block; position: absolute; transition:all ease 0.75s;}
+		span[id^="border-top"],span[id^="border-bottom"] {width: 0%; height: 4px;}
+		span[id^="border-left"],span[id^="border-right"] {width: 4px; height: 0%;}
+
+		#border-top-right {top: 0; right: 50%;}
+		#border-bottom-right {bottom: 0; right: 50%;}
+		#border-right-top {top: 0; right: 0;}
+		#border-right-bottom {bottom: 0; right: 0;}
+
+		#border-top-left {top: 0; left: 50%;}
+		#border-bottom-left {bottom: 0; left: 50%;}
+		#border-left-top {top: 0; left: 0;}
+		#border-left-bottom {bottom: 0; left: 0;}
+	}
+	
+	#empty, #your-mind {font-weight: bold; text-transform: uppercase; color:#fff; display: block; width: 100%; line-height: 1;}
+	#empty {font-size: 700%;}
+	#your-mind {font-size: 400%;}
+	@media (max-width: 640px){
+		#empty {font-size: 350%;}
+		#your-mind {font-size: 200%;}
 	}
 }
 #slide-01.active {
-	p {
-		#empty {animation-delay:0.5s; animation-duration:250ms; animation-timing-function:ease; animation-name:fade-in; animation-fill-mode:forwards;}
-		#your-mind {animation-delay:0.75s; animation-duration:500ms; animation-timing-function:ease; animation-name:fade-in; animation-fill-mode:forwards;}
-		&:before, &:after {animation-delay:1s; animation-duration:750ms; animation-timing-function:ease; animation-name:reveal-box; animation-fill-mode:forwards;}
+	.block { background: rgba(0,0,0,0.2); transition-delay:1.5s;
+		span[id^="border-top"],span[id^="border-bottom"] {width: 50%; height: 4px;}
+		span[id^="border-left"],span[id^="border-right"] {width: 4px; height: 50%; transition-delay:0.75s;}
 	}
-	.block {animation-delay:1.15s; animation-duration:500ms; animation-timing-function:ease; animation-name:fade-in-bg; animation-fill-mode:forwards;}
+}
+
+#slide-02 { position: relative;
+	#video {max-width: inherit; height: 100%; width: auto;}
+	img {display: block; position: absolute; bottom: 6em; left: 5em;}
+	@media (max-width: 640px){
+		#video {margin-left: -150%;}
+		img {max-width: 320px; left: 50%; margin-left: -160px;}
+	}
 }
