@@ -85,8 +85,7 @@ li ol > li:before {
 /* ==========================================================================
    Typography
    ========================================================================== */
-/* DEFAULT FONT SETTINGS
-  Base 16px, 1.5 line-height = 24px per line */
+/* DEFAULT FONT SETTINGS */
 body,
 button,
 input,
@@ -115,7 +114,6 @@ img {
   padding: 0;
 }
 /* TYPOGRAPHY */
-/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
 p,
 a {
   font-family: Helvetica, Arial, sans-serif;
@@ -134,36 +132,36 @@ h6 {
   font-weight: 300;
   text-rendering: optimizeLegibility;
 }
+h1 {
+  font-size: 3.75em;
+  line-height: 1.2em;
+  margin-bottom: 0.4em;
+}
 h2 {
   font-size: 3em;
   line-height: 1em;
   margin-bottom: 0.5em;
 }
-/* 48px / 48px */
 h3 {
   font-size: 2em;
   line-height: 1.3333333333333333333333333333333em;
   margin-bottom: 0.6667em;
 }
-/* 36px / 48px */
 h4 {
   font-size: 1.5em;
   line-height: 1em;
   margin-bottom: 1em;
 }
-/* 24px / 24px */
 h5 {
   font-size: 1.3125em;
   line-height: 1.1428571428571428571428571428571em;
   margin-bottom: 1.1428571428571428571428571428571em;
 }
-/* 21px / 24px */
 h6 {
   font-size: 1.125em;
   line-height: 1.3333333333333333333333333333333em;
   margin-bottom: 1.3333333333333333333333333333333em;
 }
-/* 18px / 24px */
 p,
 ul,
 blockquote,
@@ -176,7 +174,6 @@ label {
   line-height: 1.5em;
   margin-bottom: 1.5em;
 }
-/* 16px / 24px */
 small,
 p.small {
   margin: 0;
@@ -184,7 +181,6 @@ p.small {
   line-height: 1.7142857142857142857142857142857em;
   margin-bottom: 1.7142857142857142857142857142857em;
 }
-/* 14px */
 /* TABLES */
 table {
   border-collapse: collapse;
@@ -275,31 +271,6 @@ sub {
   bottom: -0.25em;
 }
 /* Move subscripted text down */
-/*Animations*/
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes fade-in-bg {
-  0% {
-    background: rgba(0, 0, 0, 0);
-  }
-  100% {
-    background: rgba(0, 0, 0, 0.2);
-  }
-}
-@keyframes reveal-box {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 50%;
-  }
-}
 /*Functional CSS*/
 .vanilla-container {
   width: 100%;
@@ -407,14 +378,38 @@ sub {
   height: 1em;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 2em;
-  cursor: pointer;
   transition: all 0.25s ease;
 }
-.vanilla-container .vanilla-pagination span:hover {
+.vanilla-container .vanilla-pagination span.active {
   background: #ffffff;
 }
 .vanilla-container .vanilla-pagination span:not(:last-of-type) {
   margin-right: 0.5em;
+}
+/*Animations*/
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in-bg {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+@keyframes reveal-box {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50%;
+  }
 }
 #slide-01 {
   background-image: url('../img/background-01.jpg');

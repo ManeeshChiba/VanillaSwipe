@@ -5,22 +5,6 @@
 @import 'partials/__base-styles.less';
 @import 'partials/__typography.less';
 
-/*Animations*/
-@keyframes fade-in{
-	0% {opacity: 0;}
-	100% {opacity: 1;}
-}
-@keyframes fade-in-bg{
-	0% {background: rgba(0,0,0,0);}
-	100% {background: rgba(0,0,0,0.2);}
-}
-
-@keyframes reveal-box{
-	0% {width: 0%;}
-	100% {width: 50%;}
-}
-
-
 /*Functional CSS*/
 // Teh codez that makes it work
 .vanilla-container { width: 100%; overflow: hidden; white-space: nowrap;
@@ -56,9 +40,8 @@
 	}
 
 	.vanilla-pagination {display: block; width: 100%; position: absolute; bottom: 3em; left: 0; text-align: center;
-		span {display: inline-block; width: 1em; height: 1em; background: rgba(255,255,255,0.5); border-radius: 2em; cursor: pointer; transition:all 0.25s ease;
-			&:hover {background: rgba(255,255,255,1);}
-		}
+		span {display: inline-block; width: 1em; height: 1em; background: rgba(255,255,255,0.5); border-radius: 2em; transition:all 0.25s ease;}
+		span.active {background: rgba(255,255,255,1);}
 		span:not(:last-of-type) {margin-right: 0.5em;}
 	}
 }
