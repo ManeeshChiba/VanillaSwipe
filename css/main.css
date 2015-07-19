@@ -272,6 +272,7 @@ sub {
 }
 /* Move subscripted text down */
 /*Functional CSS*/
+/* Teh codez that makes it work */
 .vanilla-container {
   width: 100%;
   overflow: hidden;
@@ -296,6 +297,7 @@ sub {
   color: inherit;
 }
 /*Branding Styles*/
+/* Teh codez that makes it pretty */
 .vanilla-container {
   height: 100%;
   background: transparent;
