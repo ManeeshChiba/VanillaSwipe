@@ -1,5 +1,5 @@
 #VanillaSwipe
-##A pure js and css carousel
+##A pure js and css carousel [See Demo](http://maneeshchiba.github.io/vanillaSwipe/)
 ###This repo is for a dev challenge.
 
 ####Bring 'em on challenge 3
